@@ -11,7 +11,11 @@ let AppComponent = class AppComponent {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: '<h1>Oi nenê tiamu <3</h1>'
+        template: `
+        <h1>My First Angular 2 App</h1>
+
+        <contatos-lista></contatos-lista>
+    `
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
