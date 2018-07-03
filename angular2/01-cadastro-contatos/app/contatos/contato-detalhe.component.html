@@ -2,24 +2,36 @@
 
     <h2>Salvar contato</h2>
 
-    <form>
+    <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" class="container was-validated" novalidate="">
 
         <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" placeholder="Insira o nome">
+            <label for="nome" class="form-control-label">Nome</label>
+            <input type="text" class="form-control" placeholder="Insira o nome"
+                required
+                name = "nome"
+                [(ngModel)]= "contato.nome">
+                <div class="invalid-feedback">O campo nome é obrigatório!</div>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Insira o email">
+            <input type="email" class="form-control" placeholder="Insira o email"
+                required
+                name = "email"
+                [(ngModel)]= "contato.email">
+            <div class="invalid-feedback">O campo email é obrigatório!</div>
         </div>
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" placeholder="Insira o telefone">
+            <input type="text" class="form-control" placeholder="Insira o telefone"
+                required
+                name = "telefone"
+                [(ngModel)]= "contato.telefone">
+            <div class="invalid-feedback">O campo telefone é obrigatório!</div>
         </div>
 
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
         <a class="btn btn-secondary" routerLink="/">Voltar</a>
 
     </form>
